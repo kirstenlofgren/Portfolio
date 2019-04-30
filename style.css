@@ -1,0 +1,195 @@
+/* ==========================================================================
+Colors
+========================================================================== */
+html {
+	/*Pinks*/
+	--color-primary-1: #F7EBE8;
+	--color-primary-2: #CBC1BE;
+	--color-primary-3: #9E9694;
+
+	/*Greens*/
+	--color-secondary-1: #85B19F;
+	--color-secondary-2: #21704F;
+	--color-secondary-3: #19523A;
+	
+	/*Greys*/
+	--color-tertiary-1: #D1D6D4;
+	--color-tertiary-2: #8C9893;
+	--color-tertiary-3: #031E13;
+	
+	--ratio:			1.333;
+	--size-xsmall: 		calc( var(--size-small) / (var(--ratio) ) );
+	--size-small: 		calc( var(--size-medium) / (var(--ratio) ) );
+	--size-medium: 		calc( 1rem * var(--ratio) );
+	--size-large: 		calc( var(--size-medium) * var(--ratio) );
+	--size-xlarge: 		calc( var(--size-large) * var(--ratio) );
+	--size-2xlarge: 	calc( var(--size-xlarge) * var(--ratio) );
+}
+/* ==========================================================================
+Typography
+========================================================================== */
+	html {
+		--font-primary: 'Fira Sans', 'Roboto', 'Veranda', sans-serif;
+		--font-secondary: 'Montserrat', 'Roboto', 'Veranda', sans-serif;
+		
+		color: var(--color-tertiary-3);
+		font-family: var(--font-primary);
+		line-height: 1.4;
+	}
+	@media (min-width: 620px) {
+	
+		html {
+			line-height: 1.5;
+			--margin-ratio: 1.8;
+			--ratio: 1.333;
+		}	
+	}
+	@media (min-width: 1500px) {
+	
+		html {
+			line-height: 1.6;
+			--ratio: 1.4;
+		}
+	}
+	@media (min-width: 1700px) {
+	
+		html {
+			--margin-ratio: 2;
+			--ratio: 1.45;
+		}	
+	}
+	/* ==========================================================================
+	Links
+	========================================================================== */
+		a {
+			color: var(--color-secondary-3);
+			text-decoration: none;
+		}
+		a:visited {
+			color: var(--color-primary-3);
+		}
+		a:hover {
+			color: var(--color-primary-2);
+		}
+		a:active {
+			color: var(--color-secondary-1);
+		}
+		a:focus {
+			color: var(--color-primary-2);
+		}
+	/* ==========================================================================
+	Headings
+	========================================================================== */
+		h1,h2,h3,h4,h5,h6 {
+			font-family: var(--font-secondary);
+			margin: var(--margin-large) 0 var(--margin-small);
+		}
+		h1 {
+			color: var(--color-secondary-3);
+			font-size: var(--size-2xlarge);
+			line-height: 1.25;
+		}
+		h2 {
+			font-size: var(--size-2xlarge);
+			line-height: 1.25;
+		}
+		h3 {
+			font-size: var(--size-xlarge);
+		}
+		h4 {
+			font-size: var(--size-large);
+		}
+		h5 {
+			font-size: var(--size-small);
+		}
+		h6 {
+			font-size: var(--size-xsmall);
+		}
+	/* ==========================================================================
+	Heading Links
+	========================================================================== */
+		h1 a {
+			color: var(--color-secondary-2);
+		}
+		h1 a:visited {
+			color: var(--color-secondary-2);
+		}
+		h1 a:hover {
+			color: var(--color-primary-2);
+		}
+		h1 a:active {
+			color: var(--color-secondary-1);
+		}
+		h1 a, h2 a {
+			color: var(--color-secondary-2);
+		}
+		h1 a, h2 a:visited {
+			color: var(--color-secondary-2);
+		}
+		h1 a, h2 a:hover {
+			color: var(--color-primary-2);
+		}
+		h1 a, h2 a:active {
+			color: var(--color-secondary-1);
+		}
+	/* ==========================================================================
+	Specialty Text
+	========================================================================== */
+/* ==========================================================================
+Nav
+========================================================================== */
+	nav {
+		
+	}
+	.logo {
+
+	}
+	.primary-nav {
+
+	}
+	.current-page {
+		
+	}
+	.social-links {
+
+	}
+/* ==========================================================================
+Body Component
+========================================================================== */
+	body {
+		
+	}
+	main {
+		
+	}
+	.home-page {
+		background-image: url("images/pattern.jpg");
+	}
+/* ==========================================================================
+Footer Component
+========================================================================== */
+	.footer-text {
+		
+	}
+	.secondary-nav {
+
+	}
+/* ==========================================================================
+Components
+========================================================================== */
+	/*
+	Button Links
+	*/
+	.button-link {
+
+	}
+	/*
+	Hero Section
+	*/
+	.hero-section {
+
+	}
+	/* ==========================================================================
+	Form Component
+	========================================================================== */
+

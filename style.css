@@ -272,7 +272,7 @@ Layouts
 			display: grid;
 			grid-template-columns: repeat(12, 1fr);
 			grid-gap: 1vw;
-			/*background-image: url("images/pattern.jpg");*/
+			background-image: url("images/pattern.jpg");
 		}
 		/*
 		Hero Section

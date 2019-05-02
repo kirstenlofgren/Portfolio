@@ -271,6 +271,7 @@ Layouts
 		.home-page {
 			display: grid;
 			grid-template-columns: repeat(12, 1fr);
+			grid-template-rows: 70vh 30vh 30vh 30vh 30vh 30vh;
 			grid-gap: 1vw;
 			background-image: url("images/pattern.jpg");
 		}
@@ -287,7 +288,6 @@ Layouts
 				grid-column: 1 / span 12;
 				grid-row: 1 / span 1;
 				position: relative;
-				height: 70vh;
 				overflow: hidden;
 				display: grid;
 				grid-template-columns: repeat(12, 1fr);
@@ -342,9 +342,8 @@ Layouts
 		*/
 			.resume-section {
 				grid-column: 1 / span 12;
-				grid-row: 2 / span 4;
+				grid-row: 2 / span 2;
 				position: relative;
-				height: 150vh;
 				overflow: hidden;
 				display: grid;
 				grid-template-columns: repeat(12, 1fr);
@@ -354,7 +353,6 @@ Layouts
 			}
 			.resume-box {
 				grid-column: 11 / span 15;
-				grid-row: 1 / span 2;
 				position: absolute;
 				top: 0;
 				bottom: 0;
@@ -362,7 +360,7 @@ Layouts
 				left: 0;
 				width: 30vw;
 				background-color: var(--color-secondary-2);
-				transform: skew(-30deg, 70deg) translate(9rem, 20rem);
+				transform: skew(-30deg, 70deg) translate(9rem, 15rem);
 				transform-origin: top right;
 				z-index: 10;
 			}
@@ -396,19 +394,18 @@ Layouts
 		/*
 		Portfolio Promo Section
 		*/
-			.portfoilo-section {
+			.portfolio-section {
 				grid-column: 1 / span 12;
-				grid-row: 2 / span 4;
+				grid-row: 4 / span 2;
 				position: relative;
-				height: 150vh;
-				overflow: hidden;
+				/*overflow: hidden;*/
 				display: grid;
 				grid-template-columns: repeat(12, 1fr);
 				grid-template-rows: repeat(6, 70vh);
 				grid-gap: 1rem;
 				justify-items: end;
 			}
-			.portfoilo-box {
+			.portfolio-box {
 				grid-column: 1 / span 12;
 				grid-row: 1 / span 1;
 				position: absolute;
@@ -419,15 +416,14 @@ Layouts
 				width: 100%;
 				height: 100%;
 				background-color: var(--color-secondary-1);
-				transform: skew(-32deg);
+				transform: skew(20deg) translate(-25rem);
 				transform-origin: top left;
 				z-index: 10;
 			}
 			.portfoilo-promo-text {
-				grid-column: 6 / span 6;
+				grid-column: 1 / span 6;
 				grid-row: 1 / span 1;
 				position: relative;
-				height: 45vh;
 				overflow: hidden;
 				display: grid;
 				grid-template-rows: (50% 25% 25%);

@@ -60,21 +60,21 @@ Typography
 	Links
 	========================================================================== */
 		a {
-			color: var(--color-secondary-2);
+			color: var(--color-secondary-3);
 			text-decoration: none;
 		}
 		a:visited {
 			color: var(--color-secondary-3);
 		}
 		a:hover {
-			color: var(--color-tertiary-3);
+			color: var(--color-tertiary-1);
 		}
 		a:active {
 			color: var(--color-tertiary-2);
 		}
 		a:focus {
-			color: var(--color-tertiary-3);
-		}
+			color: var(--color-tertiary-1);
+	}
 	/* ==========================================================================
 	Headings
 	========================================================================== */
@@ -141,59 +141,53 @@ Typography
 /* ==========================================================================
 Nav
 ========================================================================== */
-	nav {
-		align-items: center;
-		background-color: var(--color-primary-1);
-		display: flex;
-		justify-content: space-between;
-	}
-	nav ul {
-		display: inline-block;
-		margin: 1rem .5rem 0 0; 
-	}
-	nav li {
-		display: inline;
-		padding: 0 .25rem;
-	}
-	nav a {
-		color: var(--color-secondary-2);
-		margin-right: .5rem;
-		padding: .5rem 1rem;
-		text-decoration: none;
-	}
-	a:visited {
-		color: var(--color-secondary-3);
-	}
-	a:hover {
-		color: var(--color-tertiary-1);
-	}
-	a:active {
-		color: var(--color-tertiary-2);
-	}
-	a:focus {
-		color: var(--color-tertiary-1);
-	}
-	.current-page {
-		border-bottom: .3rem solid var(--color-primary-3);
-		padding: .1rem .4rem;	
-	}
-	a.logo  {
-		color: var(--color-primary-3);
-		display: inline-block;
-		font-size: var(--size-2xlarge);
-		margin: 1rem 1rem .5rem;
-		padding: .5rem 1rem;
-	}
-	a.secondary-nav .current-page {
-		color: solid var(--color-primary-3);
-		border-bottom: none;
-	}
-	.social-links li {
-		display: inline;
-	}
-	.social-links ul {
-		margin: 1rem .5rem 0 0; 
-	}
+	/*
+	Primary Nav
+	*/
+		nav {
+			align-items: center;
+			background-color: var(--color-primary-1);
+			display: flex;
+			justify-content: space-between;
+		}
+		nav ul {
+			display: inline-block;
+			margin: 1rem .5rem 0 0; 
+		}
+		nav li {
+			display: inline;
+			padding: 0 .25rem;
+		}
+		nav a {
+			color: var(--color-secondary-2);
+			margin-right: .5rem;
+			padding: .5rem 1rem;
+			text-decoration: none;
+		}
+		.current-page {
+			border-bottom: .3rem solid var(--color-primary-3);
+			padding: .1rem .4rem;	
+		}
+		a.logo  {
+			color: var(--color-primary-3);
+			display: inline-block;
+			font-size: var(--size-2xlarge);
+			margin: 1rem 1rem .5rem;
+			padding: .5rem 1rem;
+		}
+	/*
+	Secondary Nav
+	*/
+		.secondary-nav {
+			margin: 0 0 2rem 0;
+		}
+		.secondary-nav a {
+			padding: 0;
+		}
+		.secondary-nav a.current-page {
+			color: var(--color-primary-3);
+			border-bottom: none;
+		}
 /* ==========================================================================
 Body Component
 ========================================================================== */
@@ -207,11 +201,27 @@ Body Component
 Footer Component
 ========================================================================== */
 	footer {
-		background-color: var(--color-primary-1);	
+		background-color: var(--color-primary-1);
+		display: grid;
+		grid-template-columns: repeat(12, 1fr);	
 	}
-	a.secondary-nav .current-page {
-		border: none;
-		color: solid var(--color-primary-3);
+	div:first-child {
+		grid-column: 1 / span 1;
+	}
+	div:nth-child(2) {
+		grid-column: 11 / span 1;
+	}
+	div:nth-child(3) {
+		background-color: var(--color-secondary-1);
+		width: 100%;
+		text-align: center;
+		grid-column: 1 / span 12;
+	}
+	.social-links li {
+		display: inline;
+	}
+	.social-links ul {
+		margin: 1rem .5rem 0 0; 
 	}
 /* ==========================================================================
 Components

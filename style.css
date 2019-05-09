@@ -1,30 +1,30 @@
 /* ==========================================================================
 Colors
 ========================================================================== */
-html {
-	/*Pinks*/
-	--color-primary-1: #F7EBE8;
-	--color-primary-2: #CBC1BE;
-	--color-primary-3: #9E9694;
+	html {
+		/*Pinks*/
+		--color-primary-1: #F7EBE8;
+		--color-primary-2: #CBC1BE;
+		--color-primary-3: #9E9694;
 
-	/*Greens*/
-	--color-secondary-1: #85B19F;
-	--color-secondary-2: #21704F;
-	--color-secondary-3: #19523A;
-	
-	/*Greys*/
-	--color-tertiary-1: #D1D6D4;
-	--color-tertiary-2: #8C9893;
-	--color-tertiary-3: #031E13;
-	
-	--ratio:			1.333;
-	--size-xsmall: 		calc( var(--size-small) / (var(--ratio) ) );
-	--size-small: 		calc( var(--size-medium) / (var(--ratio) ) );
-	--size-medium: 		calc( 1rem * var(--ratio) );
-	--size-large: 		calc( var(--size-medium) * var(--ratio) );
-	--size-xlarge: 		calc( var(--size-large) * var(--ratio) );
-	--size-2xlarge: 	calc( var(--size-xlarge) * var(--ratio) );
-}
+		/*Greens*/
+		--color-secondary-1: #85B19F;
+		--color-secondary-2: #21704F;
+		--color-secondary-3: #19523A;
+		
+		/*Greys*/
+		--color-tertiary-1: #D1D6D4;
+		--color-tertiary-2: #8C9893;
+		--color-tertiary-3: #031E13;
+		
+		--ratio:			1.333;
+		--size-xsmall: 		calc( var(--size-small) / (var(--ratio) ) );
+		--size-small: 		calc( var(--size-medium) / (var(--ratio) ) );
+		--size-medium: 		calc( 1rem * var(--ratio) );
+		--size-large: 		calc( var(--size-medium) * var(--ratio) );
+		--size-xlarge: 		calc( var(--size-large) * var(--ratio) );
+		--size-2xlarge: 	calc( var(--size-xlarge) * var(--ratio) );
+	}
 /* ==========================================================================
 Typography
 ========================================================================== */
@@ -85,6 +85,7 @@ Typography
 		h1 {
 			font-size: var(--size-2xlarge);
 			line-height: 1.25;
+			margin: 0;
 		}
 		h2 {
 			font-size: var(--size-xlarge);
@@ -179,7 +180,7 @@ Nav
 	Secondary Nav
 	*/
 		.secondary-nav {
-			margin: 0 0 2rem 0;
+			font-size: var(--size-small);
 		}
 		.secondary-nav a {
 			padding: 0;
@@ -188,6 +189,15 @@ Nav
 			color: var(--color-primary-3);
 			border-bottom: none;
 		}
+		.secondary-nav ul {
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-start;
+		}
+		.secondary-nav li {
+			margin: .25rem 0;
+		}
+
 /* ==========================================================================
 Body Component
 ========================================================================== */
@@ -203,25 +213,59 @@ Footer Component
 	footer {
 		background-color: var(--color-primary-1);
 		display: grid;
-		grid-template-columns: repeat(12, 1fr);	
+		grid-template-columns: repeat(12, 1fr);
+		padding: 1rem 0 0;
+		position: relative;
+		bottom: 0; 	
 	}
-	div:first-child {
+	footer div:first-child {
 		grid-column: 1 / span 1;
 	}
-	div:nth-child(2) {
-		grid-column: 11 / span 1;
+	footer div:nth-child(2) {
+		grid-column: 8 / span 4;
 	}
-	div:nth-child(3) {
+	footer div:nth-child(3) {
 		background-color: var(--color-secondary-1);
 		width: 100%;
 		text-align: center;
 		grid-column: 1 / span 12;
 	}
+	.social-links {
+		display: grid;
+		grid-template-rows: repeat(5, 5vh);
+		grid-gap: 1rem;
+	}
+	.social-links h2 {
+		grid-row: 1 / span 1;
+	}
+	.social-links a {
+		grid-row: 3 / span 1;
+	}
+	.social-links ul {
+		margin: 0; 
+		grid-row: 4 / span 1;	
+		padding: 0;
+	}
 	.social-links li {
 		display: inline;
 	}
-	.social-links ul {
-		margin: 1rem .5rem 0 0; 
+	.footer-heading {
+		font-size: var(--size-medium);
+	}
+	footer a svg {
+		width: 1.5rem;
+		height: 1.5rem;
+		padding-right: 1rem;
+		margin: 0;
+	}
+	.footer-email-link {
+		display: flex;
+		align-items: center;		
+	}
+	.email-link {
+		text-decoration: underline; 
+		padding: 0;
+		margin: 0;
 	}
 /* ==========================================================================
 Components
@@ -235,7 +279,7 @@ Components
 			color: var(--color-secondary-1);
 			display: inline-block;
 			font: 2vw var(--font-secondary);
-			margin: 0 0 2rem 0;
+			margin: 2rem 0;
 			padding: 1.2rem 1rem;
 			text-transform: uppercase;
 		}
@@ -283,7 +327,7 @@ Layouts
 			display: grid;
 			grid-gap: 1vw;
 			grid-template-columns: repeat(12, 1fr);
-			grid-template-rows: 70vh 30vh 30vh 30vh 30vh 30vh;
+			grid-template-rows: 2fr 1fr 1fr 1fr 1fr 1fr minmax(65vh 85vh);
 		}
 		.about-page {
 			background-image: url("images/pattern.jpg");
@@ -328,7 +372,7 @@ Layouts
 				grid-template-rows: 50% 25% 25%;
 				height: 65vh;
 				justify-items: start;
-				margin: 2rem;
+				margin: 0 2rem 1rem;
 				max-width: 65%;
 				overflow: hidden;
 				position: relative;
@@ -341,7 +385,7 @@ Layouts
 			.hero-text p {
 				grid-column: 1 / span 12;
 				grid-row: 2 / span 1;
-				margin: 1rem 0;
+				margin: 1rem 0 2rem;
 			}
 			.hero-text .button-link {
 				grid-column: 1 / span 5;
@@ -356,7 +400,7 @@ Layouts
 				grid-gap: 1rem;
 				grid-row: 2 / span 2;
 				grid-template-columns: repeat(12, 1fr);
-				grid-template-rows: repeat(6, 70vh);
+				grid-template-rows: 1fr 1fr 1fr minmax(65vh 85vh);
 				justify-items: end;
 				overflow: hidden;
 				position: relative;
@@ -365,15 +409,17 @@ Layouts
 				background-color: var(--color-secondary-2);
 				bottom: 0;
 				grid-column: 11 / span 15;
+				grid-row: 1 / span 3;
 				left: 0;
 				position: absolute;
 				right: 0;
 				top: 0;
 				transform-origin: top right;
-				transform: skew(-30deg, 70deg) translate(9rem, 15rem);
-				width: 30vw;
+				transform: skew(-30deg, 70deg) translate(0rem, -40rem);
+				width: 120vh;
+				height: 170vw;
 				z-index: 10;
-			}
+			}/*absolutely position within resume-section?*/
 			.resume-promo-text {
 				align-items: center;
 				display: grid;

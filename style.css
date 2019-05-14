@@ -2,7 +2,7 @@ html {
 	box-sizing: border-box;
 }
 body {
-	background-color: var(--color-primary-2);
+	
 }
 /* ==========================================================================
 Colors
@@ -13,10 +13,15 @@ Colors
 		--color-primary-2: #CBC1BE;
 		--color-primary-3: #9E9694;
 
+		--color-primary-1-light: rgba(247, 235, 232, 0.5);
+
 		/*Greens*/
 		--color-secondary-1: #85B19F;
 		--color-secondary-2: #21704F;
 		--color-secondary-3: #19523A;
+
+		--color-secondary-1-light: rgba(103,158,136, 0.5);
+		--color-clear: rgba(103,158,136, 0);
 		
 		/*Greys*/
 		--color-tertiary-1: #D1D6D4;
@@ -278,10 +283,11 @@ Components
 			border-radius: 5px;
 			color: var(--color-secondary-1);
 			display: inline-block;
-			font: 2vw var(--font-secondary);
+			font: var(--size-small) var(--font-secondary);
 			margin: 2rem 0;
-			padding: 1.2rem 1rem;
+			padding: 1rem .8rem;
 			text-transform: uppercase;
+			text-align: center;
 		}
 		a.button-link :hover {
 			background-color: var(--color-primary-2);
@@ -298,22 +304,12 @@ Components
 		}
 		@media (min-width: 620px) {
 			a.button-link  {
-				font-size: 3vw;
-			}
-		}
-		@media (min-width: 920px) {
-			a.button-link  {
-				font-size: 2.5vw;
+				font-size: var(--size-medium);
 			}
 		}
 		@media (min-width: 1200px) {
 			a.button-link  {
-				font-size: 2vw;
-			}
-		}
-		@media (min-width: 1700px) {
-			a.button-link  {
-				font-size: 2rem;
+				font-size: var(--size-large);
 			}
 		}
 /* ==========================================================================
@@ -357,8 +353,9 @@ Layouts
 					top: 0;
 					transform-origin: top left;
 					transform: skew(-32deg);
-					width: 100%;
+					width: 150vw;
 					z-index: 10;
+					
 				}
 				.hero-text {
 					align-items: center;
@@ -385,8 +382,18 @@ Layouts
 					margin: 1rem 0 2rem;
 				}
 				.hero-text .button-link {
-					grid-column: 1 / span 5;
+					grid-column: 1 / span 12;
 					grid-row: 3 / span 1;
+				}
+				@media (min-width: 550px) {
+					.hero-box {
+						width: 120vw;
+					}
+				}
+				@media (min-width: 750px) {
+					.hero-box {
+						width: 100%;
+					}
 				}
 			/*
 			Resume Promo Section
@@ -412,11 +419,11 @@ Layouts
 					right: 0;
 					top: 0;
 					transform-origin: top right;
-					transform: skew(-30deg, 70deg) translate(0rem, -40rem);
+					transform: skew(-30deg, 70deg) translate(0rem, 45rem);
 					width: 120vh;
 					height: 170vw;
 					z-index: 10;
-				}/*absolutely position within resume-section?*/
+				}
 				.resume-promo-text {
 					align-items: center;
 					display: grid;
@@ -424,25 +431,38 @@ Layouts
 					grid-row: 1 / span 1;
 					grid-template-rows: 50% 25% 25%;
 					height: 45vh;
-					margin: 2rem;
-					max-width: 65%;
+					margin: 1rem;
+					max-width: 80%;
 					overflow: hidden;
 					position: relative;
 					text-align: right;
 					z-index: 20;
 				}
 				.resume-promo-text h1 {
-					
 					grid-row: 1 / span 1;
 				}
 				.resume-promo-text p {
-					
 					grid-row: 2 / span 1;
 					margin: 1rem 0;
+					font-size: var(--size-medium);
 				}
 				.resume-promo-text .button-link {
-					
 					grid-row: 3 / span 1;
+				}
+
+				@media (min-width: 800px) {
+					.resume-box {
+						transform: skew(-30deg, 70deg) translate(0rem, 10rem);
+					}
+					.resume-promo-text {
+						margin: 2rem;
+						max-width: 65%;
+					}
+				}
+				@media (min-width: 1350px) {
+					.resume-box {
+						transform: skew(-30deg, 70deg) translate(0rem, -40rem);
+					}
 				}
 			/*
 			Portfolio Promo Section
@@ -466,13 +486,13 @@ Layouts
 					right: 0;
 					top: 0;
 					transform-origin: top left;
-					transform: skew(20deg) translate(-25rem);
+					transform: skew(20deg) translate(-10rem);
 					z-index: 10;
 				}
 				.portfolio-promo-text {
 					align-items: center;
 					display: grid;
-					grid-column: 1 / span 4; 
+					grid-column: 1 / span 12; 
 					grid-row: 1 / span 1;
 					grid-template-rows: 50% 25% 25%;
 					margin: 2rem;
@@ -486,9 +506,26 @@ Layouts
 				.portfolio-promo-text p {
 					grid-row: 2 / span 1;
 					margin: 1rem 0;
+					font-size: var(--size-medium);
 				}
 				.portfolio-promo-text .button-link {
 					grid-row: 3 / span 1;
+					grid-column:  1 / span 3;
+				}
+				@media (min-width: 600px) {
+					.portfolio-promo-text {
+						grid-column: 1 / span 8; 
+						grid-row: 1 / span 1;
+					}
+				}
+				@media (min-width: 1200px) {
+					.portfolio-promo-text {
+						grid-column: 1 / span 5; 
+						grid-row: 1 / span 1;
+					}
+					.portfolio-box {
+						transform: skew(20deg) translate(-25rem);
+					}
 				}
 		/*
 		About Page
@@ -505,15 +542,15 @@ Layouts
 			.resume-page {
 				margin: auto;
 				max-width: 70rem;
-				background-color: var(--color-primary-1);
+				background-color: white;
 			}
 			.resume-card {	
 				margin: 0 0 2rem;
 				padding: 2rem;
 				background: linear-gradient(110deg,var(--color-secondary-1) 0%,var(--color-secondary-1) 90%,
-					var(--color-primary-1) 90%,var(--color-primary-1) 100%);
+					white 90%,white 100%);
 			} 
-			.resume-card-text {
+			.resume-card-text { 
 				max-width: 85%;
 				margin-left: .5rem;
 			}
@@ -523,15 +560,20 @@ Layouts
 					margin-left: 1rem;
 				}
 			}
+			@media (min-width: 690px) {
+				.resume-card {	
+					background: linear-gradient(110deg,var(--color-secondary-1) 0%,var(--color-secondary-1) 95%,
+						white 95%,white 100%);
+				}
+			}
 			.resume-page h2 {
-				background: linear-gradient(110deg,white 0%,white 90%,
-					var(--color-primary-1) 90%,var(--color-primary-1) 100%);
-				color: var(--color-primary-3);
+				background: linear-gradient(110deg,var(--color-secondary-3) 0%,var(--color-secondary-3) 90%,
+					white 90%,white 100%);
+				color: var(--color-primary-1);
 				padding: 2rem;
 				max-width: 80%;
 				margin: 2rem 0 0;
 			}
-			
 			@media (min-width: 620px) {
 				.resume-page h2 {
 					max-width: 60%;
@@ -542,76 +584,124 @@ Layouts
 					max-width: 40%;
 				}
 			}
-			.resume-card svg {
-				fill: var(--color-secondary-1);
-				max-width: 100%;
-			}
 			.location {
 				font-family: var(--font-secondary);
 				margin: 1rem 0 .75rem;
 				font-size: var(--size-medium);
 			}
 		/*
+		Portfoilo Page
+		*/
+			/* Page of grid cards */
+				.portfolio-page {
+					background-color: white;
+					display: grid;
+					grid-template-columns: 12 / 1fr; 
+					grid-template-rows: 12 / 40vh; 
+					grid-gap: 2rem;
+					max-width: 100vw;
+				}
+				.portfolio-card:first-of-type {
+					grid-column: 1 / span 12; 
+					grid-row: 1 / span 1;
+				}
+				.portfolio-card:nth-of-type(2)  {
+					grid-column: 1 / span 12; 
+					grid-row: 2 / span 1;
+				}
+				.portfolio-card:nth-of-type(3)  {
+					grid-column: 1 / span 12; 
+					grid-row: 3 / span 1;
+				}
+
+
+				@media (min-width: 800px) {
+					.portfolio-card:first-of-type {
+						grid-column: 1 / span 6; 
+						grid-row: 1 / span 1;
+					}
+					.portfolio-card:nth-of-type(2)  {
+						grid-column: 7 / span 6; 
+						grid-row: 1 / span 1;
+					}
+					.portfolio-card:nth-of-type(3)  {
+						grid-column: 1 / span 6; 
+						grid-row: 2 / span 1;
+					}
+				}
+				@media (min-width:900px) {
+
+				}
+			/* Individual card layout */
+				.portfolio-card {
+					display: grid;
+					grid-template-columns: 2 / 50vw;
+					grid-template-rows: 1 / 1fr;
+					max-width: 100%;
+					background-color: var(--color-secondary-1);
+				}
+				.portfolio-card-background {	
+					padding: 2rem;
+					background: linear-gradient(100deg,var(--color-secondary-1) 0%,var(--color-secondary-1) 50%,
+						var(--color-clear) 50%,var(--color-clear) 100%);
+					grid-column: 1 / span 2; 
+					grid-row: 1 / span 1;
+					z-index: 20;
+				} 
+				.portfolio-card-content p {
+					max-width: 44%;
+					margin-left: .5rem;
+				}
+				.portfolio-card img {
+					grid-column: 2 / span 1; 
+					grid-row: 1 / span 1;
+					z-index: 10;	
+				}
+				.horizontal img {
+					max-width: 50vh;
+					min-height: 100%;
+				}
+				.vertical img {
+					min-width: 100%;
+					max-height: 40vh;
+				}
+				.portfolio-page h2 {
+					background-color: var(--color-primary-1-light);
+					display: inline;
+					padding: .5rem 0;
+				}
+				@media (min-width: 620px) {
+					.portfolio-card-background {	
+						
+						padding: 2rem;
+						background: linear-gradient(105deg,var(--color-secondary-1) 0%,var(--color-secondary-1) 50%,
+						var(--color-clear) 50%,var(--color-clear) 100%);
+					} 
+				}
+				@media (min-width:900px) {
+					.portfolio-page h2 {
+						background: none;
+						display: block;
+						padding: 0;
+						max-width: 45%;
+					}
+					.portfolio-card-content {
+						margin-left: 1rem;
+					}
+					.portfolio-card-content p {
+						max-width: 48%;
+
+					}
+			}
+
+		/*
 		Contact
 		*/
-
-			/*.contact-hero {
-				display: grid;
-				grid-column: 1 / span 12;
-				grid-gap: 1rem;
-				grid-row: 1 / span 1;
-				grid-template-columns: repeat(12, 1fr);
-				grid-template-rows: repeat(1, 1fr);
-				overflow: hidden;
-				position: relative;
-			}
-			.contact-hero-box {
-				background-color: var(--color-secondary-1);
-				bottom: 0;
-				grid-column: 1 / span 12;
-				grid-row: 1 / span 2;
-				height: 100%;
-				left: 0;
-				position: absolute;
-				right: 0;
-				top: 0;
-				transform-origin: top left;
-				transform: skew(-32deg);
-				width: 100%;
-				z-index: 10;
-			}
-			.contact-hero-text {
-				align-items: center;
-				display: grid;
-				grid-column: 1 / span 12;
-				grid-row: 1 / span 1;
-				grid-template-columns: repeat(12, 1fr);
-				grid-template-rows: 50% 25% 25%;
-				justify-items: start;
-				margin: 0 2rem 1rem;
-				max-width: 65%;
-				overflow: hidden;
-				position: relative;
-				z-index: 20;
-			}
-			.contact-hero-text h1 {
-				grid-column: 1 / span 12;
-				grid-row: 1 / span 1;
-			}
-			.contact-hero-text p {
-				grid-column: 1 / span 12;
-				grid-row: 2 / span 1;
-				margin: 1rem 0 2rem;
-			}
-			.contact-hero-text .button-link {
-				grid-column: 1 / span 5;
-				grid-row: 3 / span 1;
-			}*/
 			.contact-page {
 				background: var(--color-secondary-1);
 				display: flex;
 				justify-content: center;
-				padding: 4vw 2vw 6vw;
+				padding: 2vw 2vw 6vw;
 			}
 			@media (min-width: 700px) {
 				.contact-page {
@@ -636,14 +726,14 @@ Layouts
 		padding: 1vw;
 	}
 	label {
-		margin: .5rem 0;
+		margin: .4rem 0;
 		
 	}
 	input, textarea {
 		border: none;
 		padding: 1rem;
 		min-width: 20rem;
-		margin-bottom: 1rem; 
+		margin-bottom: .5rem; 
 	}
 	textarea {
 		min-height: 10rem;

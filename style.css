@@ -41,14 +41,12 @@ Typography
 		line-height: 1.4;
 	}
 	@media (min-width: 620px) {
-	
 		html {
 			line-height: 1.5;
 			--ratio: 1.36;
 		}	
 	}
 	@media (min-width: 1500px) {
-	
 		html {
 			line-height: 1.6;
 			--ratio: 1.39;
@@ -59,6 +57,12 @@ Typography
 		html {
 			--ratio: 1.42;
 		}	
+	}
+	.primary-font {
+		font-family: var(--font-primary);
+	}
+	.secondary-font {
+		font-family: var(--font-seconday);
 	}
 	/* ==========================================================================
 	Links
@@ -82,29 +86,20 @@ Typography
 	/* ==========================================================================
 	Headings
 	========================================================================== */
-		h1,h2,h3,h4,h5,h6 {
+		h1, h2, h3, h4, h5, h6 {
+			color: var(--color-tertiary-3);
 			font-family: var(--font-secondary);
-			margin: 1rem 0 .75rem;
 		}
 		h1 {
 			font-size: var(--size-2xlarge);
-			line-height: 1.25;
-			margin: 0;
 		}
 		h2 {
 			font-size: var(--size-xlarge);
-			line-height: 1.25;
 		}
 		h3 {
 			font-size: var(--size-large);
 		}
-		h4 {
-			font-size: var(--size-medium);
-		}
-		h5 {
-			font-size: var(--size-medium);
-		}
-		h6 {
+		h4, h5, h6 {
 			font-size: var(--size-medium);
 		}
 	/* ==========================================================================
@@ -125,19 +120,19 @@ Typography
 		h1 a:active {
 			color: var(--color-secondary-3);
 		}
-		h2 a, h3 a {
+		h2 a:link, h3 a:link, h4 a:link, h5 a:link, h6 a:link {
 			color: var(--color-secondary-3);
 		}
-		h2 a, h3 a:visited {
+		h2 a:visited, h3 a:visited, h4 a:visited, h5 a:visited, h6 a:visited {
 			color: var(--color-secondary-3);
 		}
-		h2 a, h3 a:hover {
+		h2 a:hover , h3 a:hover , h4 a:hover , h5 a:hover , h6 a:hover {
 			color: var(--color-secondary-4);
 		}
-		h2 a, h3 a:active {
+		h2 a:active, h3 a:active, h4 a:active, h5 a:active, h6 a:active {
 			color: var(--color-tertiary-2);
 		}
-		h2 a, h3 a:focus {
+		h2 a:focus, h3 a:focus, h4 a:focus, h5 a:focus, h6 a:focus {
 			color: var(--color-secondary-4);
 		}
 	/* ==========================================================================
@@ -351,6 +346,8 @@ Components
 /* ==========================================================================
 Layouts
 ========================================================================== */
+	
+
 	/*
 	Home Page
 	*/
@@ -363,6 +360,29 @@ Layouts
 			grid-gap: 4vw;
 			grid-template-columns: repeat(12, 1fr);
 			grid-template-rows: 2fr 1fr 1fr 1fr 1fr 1fr minmax(65vh 85vh);
+		}
+		.resume-section {
+			animation: slideleft 1s ease-out;
+		}
+		@keyframes slideleft {
+			0% {
+				transform: translate(10rem, -8rem);
+			}
+			100% {
+				transform: translate(0rem, 0rem);
+			}
+		}
+		.portfolio-section {
+			animation: slideright 1s ease-out;
+			animation-delay: 1s; 
+		}
+		@keyframes slideright {
+			0% {
+				transform: translate(-8rem, -16rem);
+			}
+			100% {
+				transform: translate(0rem, 0rem);
+			}
 		}
 		/*
 		Hero Section
@@ -485,7 +505,6 @@ Layouts
 			.resume-promo-text .button-link {
 				grid-row: 3 / span 1;
 			}
-
 			@media (min-width: 800px) {
 				.resume-box {
 					transform: skew(-30deg, 70deg) translate(0rem, 10rem);
@@ -630,7 +649,6 @@ Layouts
 				var(--color-secondary-1) 90%,var(--color-secondary-1) 100%);
 			margin: 0 0 2rem;
 			padding: 2rem;
-
 		} 
 		.resume-card-text { 
 			margin-left: .5rem;
@@ -734,7 +752,6 @@ Layouts
 				grid-column: 1 / span 12; 
 				grid-row: 12 / span 1;
 			}
-
 			@media (min-width: 800px) {
 				.portfolio-page {
 					grid-template-rows: repeat(6, 1fr); 
@@ -1109,12 +1126,38 @@ Layouts
 			.portfolio-item-content img:nth-of-type(3) {
 				grid-column: 4 / span 6;
 			}
-			.portfolio-item-content .pull-quote {
+			.portfolio-item-content blockquote {
 				grid-column: 4 / span 6;
 			}
 		}
 		@media (min-width: 1000px) {
 			.portfolio-item {
+				padding: 3rem 3rem 3.5rem;
+			}
+		}
+	/*
+	Standard Page
+	*/
+		.standard-page {
+			background-image: url(images/black-line-pattern.jpg);
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: cover;
+			padding: 1rem;
+		}
+		.standard-page-content {
+			background-color: white;
+			margin: auto;
+			max-width: 80vw;
+			padding: 2rem;
+		}
+		@media (min-width: 800px) {
+			.standard-page {
+				padding: 2rem;
+			}
+		@media (min-width: 1000px) {
+
+			.standard-page {
 				padding: 3rem 3rem 3.5rem;
 			}
 		}
@@ -1153,7 +1196,7 @@ Layouts
 			text-transform: uppercase;
 		}
 		form button:hover, input[type="submit"]:hover {
-				background-color: var(--color-tertiary-1);
+			background-color: var(--color-tertiary-1);
 			color: var(--color-primary-3);
 		}
 		form button:focus, input[type="submit"]:focus {

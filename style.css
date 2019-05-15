@@ -8,23 +8,18 @@ Colors
 		/*Pinks*/
 		--color-primary-1: #F7EBE8;
 		--color-primary-2: #D8BEB8;
-		--color-primary-3: #8E726B;
-
-		--color-primary-1-light: rgba(247, 235, 232, 0.5);
+		--color-primary-3: #7F5B52;
 
 		/*Greens*/
-		--color-secondary-1: #85B19F;
-		--color-secondary-2: #21704F;
-		--color-secondary-3: #19523A;
-		--color-secondary-1-light: rgba(103,158,136, 0.5);
-
-		--color-clear: rgba(103,158,136, 0);
+		--color-secondary-1: rgba(103,158,136, 0);
+		--color-secondary-2: rgba(103,158,136, 0.5);
+		--color-secondary-3: #85B19F;
+		--color-secondary-4: #3F7F66;
 		
 		/*Greys*/
-		--color-tertiary-1: #E5E8E7;
-		--color-tertiary-2: #8C9893;
+		--color-tertiary-1: #F7F8F8;
+		--color-tertiary-2: #929493;
 		--color-tertiary-3: #031E13;
-		--color-tertiary-1-light: rgba(103,158,136, 0.5);
 		
 		--ratio:			1.333;
 		--size-xsmall: 		calc( var(--size-small) / (var(--ratio) ) );
@@ -69,21 +64,21 @@ Typography
 	Links
 	========================================================================== */
 		a {
-			color: var(--color-secondary-3);
+			color: var(--color-tertiary-3);
 			text-decoration: none;
 		}
 		a:visited {
-			color: var(--color-secondary-3);
+			color: var(--color-tertiary-3);
 		}
 		a:hover {
-			color: var(--color-tertiary-1);
-		}
-		a:active {
 			color: var(--color-tertiary-2);
 		}
+		a:active {
+			color: var(--color-secondary-3);
+		}
 		a:focus {
-			color: var(--color-tertiary-1);
-	}
+			color: var(--color-tertiary-2);
+		}
 	/* ==========================================================================
 	Headings
 	========================================================================== */
@@ -122,22 +117,28 @@ Typography
 			color: var(--color-tertiary-3);
 		}
 		h1 a:hover {
-			color: var(--color-secondary-2);
+			color: var(--color-tertiary-2);
+		}
+		h1 a:focus {
+			color: var(--color-tertiary-2);
 		}
 		h1 a:active {
-			color: var(--color-secondary-1);
+			color: var(--color-secondary-3);
 		}
 		h2 a, h3 a {
-			color: var(--color-tertiary-3);
+			color: var(--color-secondary-3);
 		}
 		h2 a, h3 a:visited {
-			color: var(--color-tertiary-3);
+			color: var(--color-secondary-3);
 		}
 		h2 a, h3 a:hover {
-			color: var(--color-secondary-2);
+			color: var(--color-secondary-4);
 		}
 		h2 a, h3 a:active {
-			color: var(--color-secondary-1);
+			color: var(--color-tertiary-2);
+		}
+		h2 a, h3 a:focus {
+			color: var(--color-secondary-4);
 		}
 	/* ==========================================================================
 	Specialty Text
@@ -150,19 +151,22 @@ Typography
 		font-size: var(--size-small);
 	}
 	blockquote {
+		border: solid var(--color-secondary-3) 3px;
 		border-bottom: none;
-		border: solid var(--color-secondary-2) 3px;
-		color: var(--color-secondary-2);
+		color: var(--color-secondary-3);
 		font-size: var(--size-medium);
 		margin-bottom: 0;
-		padding: 2rem 2rem 2rem 3rem;
+		padding: 1rem 1rem 0 2rem;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 	}
 	cite {
-		border-top: solid var(--color-secondary-2) 3px;
-		color: var(--color-secondary-2);
+		border-top: solid var(--color-secondary-3) 3px;
+		color: var(--color-secondary-3);
 		font-size: var(--size-medium);
-		margin-top: 0;
-		padding: 0 2rem;
+		margin-top: .25rem;
+		padding: .25rem 2rem;
 	}
 /* ==========================================================================
 Nav
@@ -178,28 +182,44 @@ Nav
 		}
 		nav ul {
 			display: inline-block;
-			margin: 1rem .5rem 0 0; 
+			margin: 1rem .5rem 1rem 0; 
 		}
 		nav li {
-			display: inline;
+			display: block;
+			text-align: right;
 			padding: 0 .25rem;
+			margin: .25rem 0;
 		}
 		nav a {
-			color: var(--color-secondary-2);
+			color: var(--color-secondary-3);
 			margin-right: .5rem;
-			padding: .5rem 1rem;
+			padding: .5rem;
 			text-decoration: none;
 		}
 		.current-page {
-			border-bottom: .3rem solid var(--color-primary-3);
-			padding: .1rem .4rem;	
-		}
+			border-bottom: none;
+			border-right: .3rem solid var(--color-primary-3);
+			padding: 0 .5rem;
+			margin: 1rem 0;
+
+			}
 		a.logo  {
 			color: var(--color-primary-3);
 			display: inline-block;
 			font-size: var(--size-2xlarge);
 			margin: 1rem 1rem .5rem;
 			padding: .5rem 1rem;
+		}
+		@media (min-width: 750px) {
+			nav li {
+				display: inline;
+				margin: 1rem .5rem 0 0; 
+			}
+			.current-page {
+				border-bottom: .3rem solid var(--color-primary-3);
+				border-right: none;
+				padding: .1rem .4rem;	
+			}
 		}
 	/*
 	Secondary Nav
@@ -212,7 +232,7 @@ Nav
 		}
 		.secondary-nav a.current-page {
 			color: var(--color-primary-3);
-			border-bottom: none;
+			border: none;
 		}
 		.secondary-nav ul {
 			display: flex;
@@ -221,6 +241,7 @@ Nav
 		}
 		.secondary-nav li {
 			margin: .25rem 0;
+			text-align: left;
 		}
 /* ==========================================================================
 Body Component
@@ -291,10 +312,11 @@ Components
 	/*
 	Button Links
 	*/
-		a.button-link , a.button-link :visited {
+		a.button-link:link , a.button-link:visited {
 			background-color: var(--color-primary-1);
 			border-radius: 5px;
-			color: var(--color-secondary-1);
+			box-shadow: 2px 2px 2px var(--color-primary-3);
+			color: var(--color-primary-3);
 			display: inline-block;
 			font: var(--size-small) var(--font-secondary);
 			margin: 2rem 0;
@@ -302,26 +324,27 @@ Components
 			text-align: center;
 			text-transform: uppercase;
 		}
-		a.button-link :hover {
-			background-color: var(--color-primary-2);
-			color: var(--color-secondary-3);
+		a.button-link:hover {
+			background-color: var(--color-tertiary-1);
+			color: var(--color-primary-3);
 		}
-		a.button-link :active {
-			background: linear-gradient(to left, var(--color-primary-1), var(--color-primary-2) 60%);
-			transition: all .4s ease-out;
-		}
-		a.button-link :focus {
+		a.button-link:active {
 			background-color: var(--color-primary-1);
-			color: var(--color-secondary-3);
-			transition: background-color .4s ease-in;
+			box-shadow: 0px 0px 0px var(--color-primary-3);
+			transition: all .4s ease-out;
+			transform: translate(2px, 2px);
+		}
+		a.button-link:focus {
+			background-color: var(--color-tertiary-1);
+			color: var(--color-primary-3);
 		}
 		@media (min-width: 620px) {
-			a.button-link  {
+			a.button-link:link  {
 				font-size: var(--size-medium);
 			}
 		}
 		@media (min-width: 1200px) {
-			a.button-link  {
+			a.button-link:link  {
 				font-size: var(--size-large);
 			}
 		}
@@ -355,7 +378,7 @@ Layouts
 				position: relative;
 			}
 			.hero-box {
-				background-color: var(--color-secondary-1);
+				background-color: var(--color-secondary-3);
 				bottom: 0;
 				grid-column: 1 / span 12;
 				grid-row: 1 / span 1;
@@ -423,7 +446,7 @@ Layouts
 				position: relative;
 			}
 			.resume-box {
-				background-color: var(--color-secondary-1);
+				background-color: var(--color-secondary-3);
 				bottom: 0;
 				grid-column: 11 / span 15;
 				grid-row: 1 / span 3;
@@ -490,7 +513,7 @@ Layouts
 				position: relative;
 			}
 			.portfolio-box {
-				background-color: var(--color-secondary-1);
+				background-color: var(--color-secondary-3);
 				bottom: 0;
 				grid-column: 1 / span 12;
 				grid-row: 1 / span 1;
@@ -552,31 +575,40 @@ Layouts
 		}
 		.about-content {
 			align-items: center;
-			background: var(--color-secondary-1);
+			background-color: var(--color-secondary-3);
 			display: flex;
 			flex-direction: column;
-			padding: 6vw 2vw 3vw;
+			padding: 6vw 4vw 3vw;
 		}
 		.about-text {
 			max-width: 80%;
 		}
+		.cta-heading {
+			font-size: var(--size-large);
+		}
 		@media (min-width: 700px) {
 			.about-content {
 				align-items: flex-start;
-				background: linear-gradient(110deg,var(--color-secondary-1) 0%,var(--color-secondary-1) 80%,
-					var(--color-clear) 80%,var(--color-clear) 100%);
+				background: linear-gradient(110deg,var(--color-secondary-3) 0%,var(--color-secondary-3) 80%,
+					var(--color-secondary-1) 80%,var(--color-secondary-1) 100%);
 			}
 			.about-page {
 				padding: 2rem;
 			}
+			.cta-heading {
+				font-size: var(--size-xlarge);
+			}
 		}
 		@media (min-width: 1000px) {
 			.about-content{
-				background: linear-gradient(110deg,var(--color-secondary-1) 0%,var(--color-secondary-1) 85%,
-					var(--color-clear) 85%,var(--color-clear) 100%);
+				background: linear-gradient(110deg,var(--color-secondary-3) 0%,var(--color-secondary-3) 85%,
+					var(--color-secondary-1) 85%,var(--color-secondary-1) 100%);
 			}
 			.about-page {
 				padding: 3rem 3rem 3.5rem;
+			}
+			.cta-heading {
+				font-size: var(--size-2xlarge);
 			}
 		}
 	/*
@@ -594,9 +626,8 @@ Layouts
 			max-width: 70rem;
 		}
 		.resume-card {	
-			
-			background: linear-gradient(110deg,var(--color-secondary-1) 0%,var(--color-secondary-1) 90%,
-				var(--color-clear) 90%,var(--color-clear) 100%);
+			background: linear-gradient(110deg,var(--color-secondary-3) 0%,var(--color-secondary-3) 90%,
+				var(--color-secondary-1) 90%,var(--color-secondary-1) 100%);
 			margin: 0 0 2rem;
 			padding: 2rem;
 
@@ -607,7 +638,7 @@ Layouts
 		}
 		.resume-components h2 {
 			background: linear-gradient(110deg,var(--color-primary-1) 0%,var(--color-primary-1) 90%,
-				var(--color-clear) 90%,var(--color-clear) 100%);
+				var(--color-secondary-1) 90%,var(--color-secondary-1) 100%);
 			margin: 2rem 0 0;
 			max-width: 80%;
 			padding: 2rem;
@@ -620,8 +651,8 @@ Layouts
 		}
 		@media (min-width: 690px) {
 			.resume-card {	
-				background: linear-gradient(110deg,var(--color-secondary-1) 0%,var(--color-secondary-1) 95%,
-					var(--color-clear) 95%,var(--color-clear) 100%);
+				background: linear-gradient(110deg,var(--color-secondary-3) 0%,var(--color-secondary-3) 95%,
+					var(--color-secondary-1) 95%,var(--color-secondary-1) 100%);
 			}
 		}
 		@media (min-width: 620px) {
@@ -647,7 +678,7 @@ Layouts
 	*/
 		/* Page of grid cards */
 			.portfolio-page {
-				background-color: white;
+				background-color: var(--color-primary-1);
 				display: grid;
 				grid-gap: 2rem;
 				grid-template-columns: repeat(12, 1fr); 
@@ -706,6 +737,7 @@ Layouts
 
 			@media (min-width: 800px) {
 				.portfolio-page {
+					grid-template-rows: repeat(6, 1fr); 
 					margin: 2rem;
 				}
 				.portfolio-card:first-of-type {
@@ -758,6 +790,9 @@ Layouts
 				}
 			}
 			@media (min-width:1200px) {
+				.portfolio-page {
+					grid-template-rows: repeat(5, 1fr); 
+				}
 				.portfolio-card:first-of-type {
 					grid-column: 1 / span 8; 
 					grid-row: 1 / span 1;
@@ -818,7 +853,7 @@ Layouts
 			}
 			.portfolio-card-background {	
 				background: linear-gradient(100deg,var(--color-tertiary-1) 0%,var(--color-tertiary-1) 50%,
-					var(--color-clear) 50%,var(--color-clear) 100%);
+					var(--color-secondary-1) 50%,var(--color-secondary-1) 100%);
 				grid-column: 1 / span 2; 
 				grid-row: 1 / span 1;
 				padding: 2rem;
@@ -950,7 +985,7 @@ Layouts
 			}
 			.portfolio-page h2 {
 				background: linear-gradient(110deg,var(--color-primary-1) 0%,var(--color-primary-1) 90%,
-					var(--color-clear) 90%,var(--color-clear) 100%);
+					var(--color-secondary-1) 90%,var(--color-secondary-1) 100%);
 				font-size: var(--size-large);
 				margin: 2rem 0 0;
 				max-width: 80%;
@@ -959,7 +994,7 @@ Layouts
 			@media (min-width: 800px) {
 				.portfolio-card-background {		
 					background: linear-gradient(105deg,var(--color-tertiary-1) 0%,var(--color-tertiary-1) 50%,
-					var(--color-clear) 50%,var(--color-clear) 100%);
+					var(--color-secondary-1) 50%,var(--color-secondary-1) 100%);
 					padding: 2rem;
 				} 
 			}
@@ -990,15 +1025,15 @@ Layouts
 		}
 		.contact-form {
 			align-items: center;
-			background: var(--color-secondary-1);
+			background: var(--color-secondary-3);
 			display: flex;
 			flex-direction: column;
 			padding: 2vw 2vw 6vw;
 		}
 		@media (min-width: 700px) {
 			.contact-form {
-				background: linear-gradient(110deg,var(--color-secondary-1) 0%,var(--color-secondary-1) 80%,
-					var(--color-clear) 80%,var(--color-clear) 100%);
+				background: linear-gradient(110deg,var(--color-secondary-3) 0%,var(--color-secondary-3) 80%,
+					var(--color-secondary-1) 80%,var(--color-secondary-1) 100%);
 			}
 			.contact-page {
 				padding: 2rem;
@@ -1006,8 +1041,8 @@ Layouts
 		}
 		@media (min-width: 1000px) {
 			.contact-form {
-				background: linear-gradient(110deg,var(--color-secondary-1) 0%,var(--color-secondary-1) 85%,
-					var(--color-clear) 85%,var(--color-clear) 100%);
+				background: linear-gradient(110deg,var(--color-secondary-3) 0%,var(--color-secondary-3) 85%,
+					var(--color-secondary-1) 85%,var(--color-secondary-1) 100%);
 			}
 			.contact-page {
 				padding: 2rem 3rem 2.5rem;
@@ -1039,23 +1074,22 @@ Layouts
 		.portfolio-item-content p {
 			grid-column: 1 / span 12;
 		}
-		.portfolio-item-content svg {
-			fill: var(--color-secondary-2);
+		blockquote svg {
+			fill: var(--color-secondary-3);
 			grid-column: 1 / span 12;
-			margin: 0;
+			margin: 0 1rem 1rem;
 			max-width: 5rem;
 		}
 		.portfolio-item-content img {
 			grid-column: 1 / span 12;
 			max-width: 100%;
 		}
-		.portfolio-item-content .pull-quote {
+		.portfolio-item-content blockquote {
 			grid-column: 2 / span 10;
 		}
-		.portfolio-item-content .attribution {
+		.portfolio-item-content cite {
 			grid-column: 2 / span 10;
 		}
-		
 		@media (min-width: 800px) {
 			.portfolio-item {
 				padding: 2rem;
@@ -1080,7 +1114,6 @@ Layouts
 			}
 		}
 		@media (min-width: 1000px) {
-
 			.portfolio-item {
 				padding: 3rem 3rem 3.5rem;
 			}
@@ -1097,7 +1130,6 @@ Layouts
 		}
 		label {
 			margin: .4rem 0;
-			
 		}
 		input, textarea {
 			border: none;
@@ -1111,25 +1143,36 @@ Layouts
 		button, input[type="submit"] {
 			background-color: var(--color-primary-1);
 			border-radius: 5px;
-			color: var(--color-secondary-1);
-			font: var(--size-medium) var(--font-secondary);
-			margin: .5rem auto;
-			max-width: 50%;
-			padding: 1.2rem 1rem;
+			box-shadow: 2px 2px 2px var(--color-primary-3);
+			color: var(--color-primary-3);
+			display: inline-block;
+			font: var(--size-small) var(--font-secondary);
+			margin: 2rem 0;
+			padding: 1rem .8rem;
+			text-align: center;
 			text-transform: uppercase;
 		}
 		form button:hover, input[type="submit"]:hover {
-			background-color: var(--color-primary-2);
-			color: var(--color-secondary-3);
+				background-color: var(--color-tertiary-1);
+			color: var(--color-primary-3);
 		}
 		form button:focus, input[type="submit"]:focus {
-			background-color: var(--color-primary-2);
-			color: var(--color-secondary-3);
-			outline: none;
+			background-color: var(--color-tertiary-1);
+			color: var(--color-primary-3);
 		}
 		form button:active, input[type="submit"]:active {
 			background-color: var(--color-primary-1);
-			box-shadow: 0 .5px 1.5px var(--color-secondary-1);
-			color: var(--color-secondary-3);
-			transition: all .5s;
+			box-shadow: 0px 0px 0px var(--color-primary-3);
+			transition: all .4s ease-out;
+			transform: translate(2px, 2px);
+		}
+		@media (min-width: 620px) {
+			button, input[type="submit"]  {
+				font-size: var(--size-small);
+			}
+		}
+		@media (min-width: 1200px) {
+			button, input[type="submit"] {
+				font-size: var(--size-medium);
+			}
 		}
